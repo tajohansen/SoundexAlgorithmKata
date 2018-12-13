@@ -1,46 +1,43 @@
-#include <iostream>
-#include <string>
 
-using namespace std;
+#include <gmock/gmock.h>
+#include "Soundex.h"
 
-
-class Soundex
-{
-    string zeroPad(const string& word) const
-    {
-        return word + "000";
-    }
-public:
-    string encode(const string& word) const
-    {
-        return zeroPad(word);
-    }
-};
-
-#include "gmock/gmock.h"
 using ::testing::Eq;
 
-TEST(SoundexEncoding, RetainsSoleLetterOfOneLetterWord)
+// Create a class fixture
+class SoundexEncoding: public testing::Test
+{
+public:
+    Soundex soundex;
+};
+
+TEST_F(SoundexEncoding, RetainsSoleLetterOfOneLetterWord)
 {
     // Arrange
    Soundex soundex;
-
    //Act
-   auto encode = soundex.encode("A");
 
    //Assert
-   ASSERT_THAT(encode, Eq("A000"));
+   ASSERT_THAT(soundex.encode("A"), Eq("A000"));
 }
 
-TEST(SoundexEncoding, PadsWithZerosToEnsureThreeDigits)
+TEST_F(SoundexEncoding, PadsWithZerosToEnsureThreeDigits)
 {
     // Arrange
     Soundex soundex;
-
     //Act
-    auto encode = soundex.encode("I");
 
     //Assert
-    ASSERT_THAT(encode, Eq("I000"));
+    ASSERT_THAT(soundex.encode("I"), Eq("I000"));
+}
+
+TEST_F(SoundexEncoding, ReplaceConsonantWithAppropriateDigits)
+{
+    // Arrange
+
+    //Act
+
+    //Assert
+    ASSERT_THAT(soundex.encode("Ab"), Eq("A100"));
 }
 
