@@ -39,5 +39,9 @@ TEST_F(SoundexEncoding, ReplaceConsonantWithAppropriateDigits)
 
     //Assert
     ASSERT_THAT(soundex.encode("Ab"), Eq("A100"));
+    ASSERT_THAT(soundex.encode("Ac"), Eq("A200"));
+    ASSERT_THAT(soundex.encode("Ad"), Eq("A300"));
+    ASSERT_THAT(soundex.encode("Ax"), Eq("A200"));
+    ASSERT_THAT(soundex.encode("Ar"), Eq("A600"));
 }
 
