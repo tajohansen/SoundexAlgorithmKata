@@ -44,4 +44,12 @@ TEST_F(SoundexEncoding, ReplaceConsonantWithAppropriateDigits)
     ASSERT_THAT(soundex.encode("Ax"), Eq("A200"));
     ASSERT_THAT(soundex.encode("Ar"), Eq("A600"));
 }
+TEST_F(SoundexEncoding, IgnoreNonAlphabetics)
+{
+    // Arrange
+     //Act
+
+    //Assert
+    ASSERT_THAT(soundex.encode("A#"), Eq("A000"));
+}
 
