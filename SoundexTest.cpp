@@ -102,3 +102,11 @@ TEST_F(SoundexEncoding, IgnoreVowelsLikeLetters)
     ASSERT_THAT(soundex.encode("BaAeEiIoOuUhHyYWwcdl"), StartsWith("B234"));
 }
 
+TEST_F(SoundexEncoding, IgnoreCaseWhenEncodingConsonants)
+{
+    // Arrange
+
+    //Act & Assert
+    ASSERT_THAT(soundex.encode("BCDL"), soundex.encode("Bcdl"));
+}
+

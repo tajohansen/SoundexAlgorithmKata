@@ -12,7 +12,7 @@
 using namespace std;
 
 static const size_t MaxcodeLength{4};
-
+static const string NotADigit{"*"};
 class Soundex
 {
 private:
@@ -23,7 +23,7 @@ private:
     bool isComplete(const string& encoding) const ;
     string lastDigit(const string& encoding) const;
     string upperFront(const string& word) const;
-
+    char lower(char c) const;
 public:
     string encodeDigit(char letter)const;
     string encode(const string& word) const;
