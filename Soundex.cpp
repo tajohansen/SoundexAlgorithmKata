@@ -12,7 +12,7 @@ string Soundex::zeroPad(const string& word) const
 
 string Soundex::encode(const string& word) const
 {
-    return zeroPad(head(word) + encodeDigits(tail(word)));
+    return zeroPad(upperFront(head(word)) + encodeDigits(tail(word)));
 }
 
 
@@ -72,5 +72,11 @@ string Soundex::lastDigit(const string &encoding) const {
         return  "";
     }
     return std::string(1,encoding.back());
+}
+
+string Soundex::upperFront(const string &word) const
+{
+    return std::string(1,
+            toupper(static_cast<unsigned char>(word.front())));
 }
 
