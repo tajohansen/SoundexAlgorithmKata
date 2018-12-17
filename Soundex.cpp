@@ -26,12 +26,17 @@ string Soundex::tail(const string &word) const {
 
 
 string Soundex::encodeDigits(const string &word) const {
-    if (word.empty)
+    if (word.empty())
     {
         return "";
     }
+    string encoding;
 
-    return encodeDigit(word.front());
+    for (auto letter : word)
+    {
+        encoding += encodeDigit(letter);
+    }
+    return encoding;
 
 }
 

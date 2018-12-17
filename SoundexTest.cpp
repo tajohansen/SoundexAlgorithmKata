@@ -52,8 +52,11 @@ TEST_F(SoundexEncoding, IgnoreNonAlphabetics)
     //Assert
     ASSERT_THAT(soundex.encode("A#"), Eq("A000"));
 }
+// DISABLED_ will not run the test.
+// use it when you need to refactor your code
+// then, when you are ready, "enable" your test
 
-TEST_F(SoundexEncoding, DISABLED_ReplaceMultipleConsonantsWithDigits)
+TEST_F(SoundexEncoding, ReplaceMultipleConsonantsWithDigits)
 {
     // Arrange
     //Act
