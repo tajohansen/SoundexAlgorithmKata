@@ -9,5 +9,10 @@ bool RetweetCollection::isEmpty() const {
 }
 
 unsigned int RetweetCollection::size() const {
-    return 0;
+    return isEmpty() ? 0 : 1;
+}
+
+void RetweetCollection::add(const Tweet &tweet)
+{
+    size_ = 1;
 }
