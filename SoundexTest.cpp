@@ -73,3 +73,16 @@ TEST_F(SoundexEncoding, LimitLengthToFourCharacters)
     ASSERT_THAT(soundex.encode("Dcdlb").length(), Eq(4u));
 }
 
+TEST_F(SoundexEncoding, CombineDuplicateEncodings)
+{
+    // Arrange
+    //Act
+
+    //Assert
+    ASSERT_THAT(soundex.encodeDigit('b'), Eq(soundex.encodeDigit('f')));
+    ASSERT_THAT(soundex.encodeDigit('x'), Eq(soundex.encodeDigit('g')));
+    ASSERT_THAT(soundex.encodeDigit('d'), Eq(soundex.encodeDigit('t')));
+
+    ASSERT_THAT(soundex.encode("Abfxgdt"), Eq("A123"));
+}
+

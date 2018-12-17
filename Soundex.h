@@ -20,10 +20,11 @@ private:
     string head(const string& word) const;
     string tail(const string& word) const;
     string encodeDigits(const string& word) const;
-    string encodeDigit(char letter)const;
     bool isComplete(const string& encoding) const ;
+    string lastDigit(const string& encoding) const;
 
 public:
+    string encodeDigit(char letter)const;
     string encode(const string& word) const;
 
 
